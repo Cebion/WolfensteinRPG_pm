@@ -31,4 +31,9 @@ elseif (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     target_link_libraries(${PROJECT_NAME} OpenGL::GL ${OPENAL_LIBRARY})
     # Verifica si realmente necesitas una compilación estática
     target_link_options(${PROJECT_NAME} PRIVATE -static-libgcc -static-libstdc++)
+    # Este código fue escrito asumiendo char con signo (por defecto en x86/iOS);
+    # aarch64 Linux usa char sin signo por defecto, lo que causaba corrupción de
+    # memoria en tiempo de ejecución (confirmado: crash reproducible en
+    # ScriptThread::run() al cerrar el dialogo de briefing, solucionado por este flag).
+    target_compile_options(${PROJECT_NAME} PRIVATE -fsigned-char)
 endif()

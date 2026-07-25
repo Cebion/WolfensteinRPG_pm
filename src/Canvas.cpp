@@ -5089,13 +5089,13 @@ void Canvas::mixingState(Graphics *graphics) {
 
 		switch (this->stateVars[3])
 		{
-		case 0xFFCC0000:
+		case (int)0xFFCC0000:
 			graphics->drawImage(this->imgMixingSyringeRed, v18, 132, 0, 0, 0);
 			break;
-		case 0xFF00CC00:
+		case (int)0xFF00CC00:
 			graphics->drawImage(this->imgMixingSyringeGreen, v18, 132, 0, 0, 0);
 			break;
-		case 0xFF0000CC:
+		case (int)0xFF0000CC:
 			graphics->drawImage(this->imgMixingSyringeBlue, v18, 132, 0, 0, 0);
 			break;
 		}
@@ -5103,13 +5103,13 @@ void Canvas::mixingState(Graphics *graphics) {
 		v18 += imgMixingSyringeWidth;
 		switch (this->stateVars[2])
 		{
-		case 0xFFCC0000:
+		case (int)0xFFCC0000:
 			graphics->drawImage(this->imgMixingSyringeRed, v18, 132, 0, 0, 0);
 			break;
-		case 0xFF00CC00:
+		case (int)0xFF00CC00:
 			graphics->drawImage(this->imgMixingSyringeGreen, v18, 132, 0, 0, 0);
 			break;
-		case 0xFF0000CC:
+		case (int)0xFF0000CC:
 			graphics->drawImage(this->imgMixingSyringeBlue, v18, 132, 0, 0, 0);
 			break;
 		}
@@ -5117,13 +5117,13 @@ void Canvas::mixingState(Graphics *graphics) {
 		v18 += imgMixingSyringeWidth;
 		switch (this->stateVars[1])
 		{
-		case 0xFFCC0000:
+		case (int)0xFFCC0000:
 			graphics->drawImage(this->imgMixingSyringeRed, v18, 132, 0, 0, 0);
 			break;
-		case 0xFF00CC00:
+		case (int)0xFF00CC00:
 			graphics->drawImage(this->imgMixingSyringeGreen, v18, 132, 0, 0, 0);
 			break;
-		case 0xFF0000CC:
+		case (int)0xFF0000CC:
 			graphics->drawImage(this->imgMixingSyringeBlue, v18, 132, 0, 0, 0);
 			break;
 		}
@@ -5243,15 +5243,15 @@ void Canvas::popIngredient() {
 		return;
 	}
 	switch (this->stateVars[this->stateVars[0]]) {
-		case 0xFFCC0000: {
+		case (int)0xFFCC0000: {
 			++this->stateVars[6];
 			break;
 		}
-		case 0xFF00CC00: {
+		case (int)0xFF00CC00: {
 			++this->stateVars[7];
 			break;
 		}
-		case 0xFF0000CC: {
+		case (int)0xFF0000CC: {
 			++this->stateVars[8];
 			break;
 		}
@@ -5288,15 +5288,15 @@ void Canvas::updateMixingText() {
 		uint8_t b = 0;
 		for (int i = 0; i < 3; ++i) {
 			switch (this->stateVars[3 - i]) {
-				case 0xFFCC0000: {
+				case (int)0xFFCC0000: {
 					b += 16;
 					break;
 				}
-				case 0xFF00CC00: {
+				case (int)0xFF00CC00: {
 					b += 4;
 					break;
 				}
-				case 0xFF0000CC: {
+				case (int)0xFF0000CC: {
 					++b;
 					break;
 				}
@@ -5342,15 +5342,15 @@ void Canvas::mixCocktail() {
 	if (app->player->give(Enums::IT_INVENTORY, Enums::INV_FIRST_MIXABLE + this->stateVars[5], 1)) {
 		for (int i = 0; i < 3; ++i) {
 			switch (this->stateVars[3 - i]) {
-			case 0xFFCC0000: {
+			case (int)0xFFCC0000: {
 				--app->game->mixingStations[this->curStation + 1];
 				break;
 			}
-			case 0xFF00CC00: {
+			case (int)0xFF00CC00: {
 				--app->game->mixingStations[this->curStation + 2];
 				break;
 			}
-			case 0xFF0000CC: {
+			case (int)0xFF0000CC: {
 				--app->game->mixingStations[this->curStation + 3];
 				break;
 			}
